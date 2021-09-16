@@ -1,0 +1,108 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    xmlns:tools="http://schemas.android.com/tools"
+4    package="com.common.core"
+5    android:versionCode="1"
+6    android:versionName="1.0" >
+7
+8    <uses-sdk
+9        android:minSdkVersion="21"
+9-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml
+10        android:targetSdkVersion="29" />
+10-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml
+11
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:5:5-67
+12-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:5:22-64
+13    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+13-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:6:5-81
+13-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:6:22-78
+14
+15    <application
+15-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:8:5-57:19
+16        android:maxAspectRatio="2.4"
+16-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:9:9-37
+17        android:networkSecurityConfig="@xml/common_core_network_security_config"
+17-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:10:9-81
+18        android:resizeableActivity="true"
+18-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:11:9-42
+19        android:usesCleartextTraffic="true"
+19-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:12:9-44
+20        tools:targetApi="o" >
+20-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:13:9-28
+21
+22        <!-- 刘海屏支持 -->
+23        <meta-data
+23-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:16:9-18:35
+24            android:name="android.max_aspect"
+24-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:17:13-46
+25            android:value="2.4" />
+25-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:18:13-32
+26
+27        <!-- 适配华为（huawei）刘海屏 -->
+28        <meta-data
+28-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:21:9-23:36
+29            android:name="android.notch_support"
+29-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:22:13-49
+30            android:value="true" />
+30-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:23:13-33
+31        <!-- 适配小米（xiaomi）刘海屏 -->
+32        <meta-data
+32-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:25:9-27:50
+33            android:name="notch.config"
+33-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:26:13-40
+34            android:value="portrait|landscape" />
+34-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:27:13-47
+35
+36        <!-- AutoSize设计图的基准稿 720x1280 -->
+37        <meta-data
+37-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:30:9-32:35
+38            android:name="design_width_in_dp"
+38-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:31:13-46
+39            android:value="360" />
+39-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:32:13-32
+40        <meta-data
+40-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:33:9-35:35
+41            android:name="design_height_in_dp"
+41-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:34:13-47
+42            android:value="640" />
+42-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:35:13-32
+43
+44        <!-- 适配Android 7.0 -->
+45        <provider
+45-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:38:9-46:20
+46            android:name="com.common.core.utils.CommonCoreProvider"
+46-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:39:13-68
+47            android:authorities="${applicationId}.CommonCoreProvider"
+47-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:40:13-70
+48            android:exported="false"
+48-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:41:13-37
+49            android:grantUriPermissions="true" >
+49-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:42:13-47
+50            <meta-data
+50-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:43:13-45:66
+51                android:name="android.support.FILE_PROVIDER_PATHS"
+51-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:44:17-67
+52                android:resource="@xml/common_core_file_paths" />
+52-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:45:17-63
+53        </provider>
+54        <provider
+54-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:48:9-56:20
+55            android:name="androidx.startup.InitializationProvider"
+55-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:49:13-67
+56            android:authorities="${applicationId}.androidx-startup"
+56-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:50:13-68
+57            android:exported="false"
+57-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:51:13-37
+58            tools:node="merge" >
+58-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:52:13-31
+59            <meta-data
+59-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:53:13-55:52
+60                android:name="com.common.core.Initializer"
+60-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:54:17-59
+61                android:value="androidx.startup" />
+61-->/Users/lyons/workspace/android/mumayi/library/common/core/src/main/AndroidManifest.xml:55:17-49
+62        </provider>
+63    </application>
+64
+65</manifest>

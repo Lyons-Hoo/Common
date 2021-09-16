@@ -1,0 +1,14 @@
+R_DEF: Internal format may change without notice
+local
+id rf_footer
+id rf_header
+id rv_data
+id srl_container
+layout fragment_list
+layout layout_list_empty_data_default
+string empty_data
+string send_code_after
+string send_code_again
+style Dialog.Transparent
+xml common_core_file_paths
+xml common_core_network_security_config

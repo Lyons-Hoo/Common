@@ -1,0 +1,74 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt' // Required for annotation processing.
+apply from: '../gradle/uploadLocalArchives.gradle' // 用于上传library
+apply plugin: 'dagger.hilt.android.plugin' // hilt
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+static boolean canDepend(String dependencyName) {
+    // 不参与依赖的类库（在dependencies文件中的名字）需要放在这个列表中
+    return ![
+            'leakcanary',
+            'umeng',
+            'tencenttbs',
+            'wechatpay',
+            'alioss',
+            ].contains(dependencyName)
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    rootProject.ext.dependencies.each {
+        if(canDepend(it.key)) { // 过滤不依赖的库
+            def value = it.value
+            if(value.contains("compiler")) { // 编译器
+                println("kapt: $value")
+                kapt value
+            } else {
+                println("dependencies: $value")
+                api value
+            }
+//            if(value instanceof ArrayList) {
+//                value.each { item ->
+//                    if(!apt(item, this.dependencies)) {
+//                        println("dependencies: $item")
+//                        api item
+//                    }
+//                }
+//            } else {
+//                def value1 = it.value
+//                if (!apt(value1, this.dependencies)) {// 非编译器库才能去依赖
+//                    println("dependencies: $value1")
+//                    api value1
+//                }
+//            }
+        }
+    }
+//    debugImplementation project(':third-sdk')
+//    debugImplementation project(':advertisement')
+//    debugApi rootProject.ext.dependencies['leakcanary'] // debug是不会将依赖打到pom文件中，项目使用的话自己依赖把
+}
